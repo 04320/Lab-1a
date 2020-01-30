@@ -1,3 +1,7 @@
+/**
+ * Abstract class Car is a super class to car models.
+ */
+
 import java.awt.*;
 
 public abstract class Car implements Movable{
@@ -7,19 +11,18 @@ public abstract class Car implements Movable{
     public Color color; // Color of the car
     public String modelName; //The car model name
 
-    final static String INV_ARG = "Value not allowed";
+    final static String INV_ARG = "Value not allowed"; //
 
-
-    //Nya variable
-    public double x;
-    public double y;
-    public direction dir;
+    //Direction and coordinats
+    public double x = 0;
+    public double y = 0;
+    public direction dir = direction.NORTH;
     
     public enum direction{
         NORTH, SOUTH, WEST, EAST;
     }
 
-
+    //Getters
     public int getNrDoors(){
         return nrDoors;
     }
@@ -36,10 +39,12 @@ public abstract class Car implements Movable{
         return color;
     }
 
+    //Setters
     public void setColor(Color clr){
         color = clr;
     }
 
+    //Car Components
     public void startEngine(){
         currentSpeed = 0.1;
     }
@@ -78,8 +83,6 @@ public abstract class Car implements Movable{
         } else { throw new IllegalArgumentException(INV_ARG);
         }
     }
-    public void incrementSpeed(double amount){}
-    public void decrementSpeed(double amount){}
 
     @Override
     public void move() {
@@ -96,38 +99,38 @@ public abstract class Car implements Movable{
             x = x + currentSpeed;
         }
     }
-
     @Override
     public void turnLeft() {
         if (dir == direction.SOUTH){
             dir = direction.EAST;
         }
-        if (dir == direction.EAST){
+        else if (dir == direction.EAST){
             dir = direction.NORTH;
         }
-        if (dir == direction.NORTH){
+        else if (dir == direction.NORTH){
             dir = direction.WEST;
         }
-        if (dir == direction.WEST){
+        else if (dir == direction.WEST){
             dir = direction.SOUTH;
         }
     }
-
     @Override
     public void turnRight() {
         if (dir == direction.SOUTH){
             dir = direction.WEST;
         }
-        if (dir == direction.EAST){
+        else if (dir == direction.EAST){
             dir = direction.SOUTH;
         }
-        if (dir == direction.NORTH){
+        else if (dir == direction.NORTH){
             dir = direction.EAST;
         }
-        if (dir == direction.WEST){
+        else if (dir == direction.WEST){
             dir = direction.NORTH;
         }
     }
 
+    public void incrementSpeed(double amount){} // Is overrriden if specified in subclass
+    public void decrementSpeed(double amount){} // Is overrriden if specified in subclass
 
 }

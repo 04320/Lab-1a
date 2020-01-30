@@ -50,11 +50,14 @@ public abstract class Car implements Movable{
 
     public void gas(double amount) {
         if (amount >= 0 && amount <= 1) {
+            double max = this.getEnginePower();
             double i = this.getCurrentSpeed();
             incrementSpeed(amount);
             double j = this.getCurrentSpeed();
             if (i > j) {
                 currentSpeed = i;
+            } else if (j > max) {
+                currentSpeed = max;
             }
         } else {
             throw new IllegalArgumentException(INV_ARG);
@@ -63,11 +66,14 @@ public abstract class Car implements Movable{
 
     public void brake(double amount) {
         if (amount >= 0 && amount <= 1){
+            double min = 0;
             double i = this.getCurrentSpeed();
             decrementSpeed(amount);
             double j = this.getCurrentSpeed();
             if (i < j){
                 currentSpeed = i;
+            } else if (j < min) {
+                currentSpeed = min;
             }
         } else { throw new IllegalArgumentException(INV_ARG);
         }

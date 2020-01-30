@@ -13,16 +13,26 @@ public abstract class Car implements Movable{
 
     final static String INV_ARG = "Value not allowed"; //
 
-    //Direction and coordinats
-    public double x = 0;
-    public double y = 0;
-    public direction dir = direction.NORTH;
+    //Direction and coordinates
+    private double x = 0;
+    private double y = 0;
+    private direction dir = direction.NORTH;
     
     public enum direction{
-        NORTH, SOUTH, WEST, EAST;
+        NORTH, SOUTH, WEST, EAST
     }
 
     //Getters
+    public double getX(){
+        return x;
+    }
+    public double getY(){
+        return y;
+    }
+    public direction getDir(){
+        return dir;
+    }
+
     public int getNrDoors(){
         return nrDoors;
     }

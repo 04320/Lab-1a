@@ -13,7 +13,6 @@ import static junit.framework.TestCase.assertTrue;
 public class test {
     Volvo240 test1 = new Volvo240();
     Saab95 test2 = new Saab95();
-    Car test3;
 
     @Before
     public void init(){
@@ -97,7 +96,7 @@ public class test {
     }
     @Test
     public void checkMove(){
-        out.println(test1.dir);
+        out.println(test1.getDir());
         test1.move();
         //out.println(test1.y);
         //out.println(test1.getCurrentSpeed());
@@ -105,18 +104,18 @@ public class test {
         test1.move();
         //out.println(test1.y);
         //out.println(test1.getCurrentSpeed());
-        assertTrue(test1.y == test1.getCurrentSpeed());
+        assertTrue(test1.getY() == test1.getCurrentSpeed());
     }
     @Test
     public void checkTurnRight(){
         test1.turnRight();
-        assertTrue(test1.dir == Car.direction.EAST);
+        assertTrue(test1.getDir() == Car.direction.EAST);
     }
     @Test
     public void checkTurnLeft(){
         test1.turnLeft();
         test1.turnLeft();
-        assertTrue(test1.dir == Car.direction.SOUTH);
+        assertTrue(test1.getDir() == Car.direction.SOUTH);
     }
     @Test
     public void checkColorChange(){

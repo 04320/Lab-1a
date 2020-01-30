@@ -7,6 +7,9 @@ public abstract class Car implements Movable{
     public Color color; // Color of the car
     public String modelName; //The car model name
 
+    final static String INV_ARG = "Value not allowed";
+
+
     //Nya variable
     public double x;
     public double y;
@@ -44,6 +47,33 @@ public abstract class Car implements Movable{
     public void stopEngine(){
         currentSpeed = 0;
     }
+
+    public void gas(double amount) {
+        if (amount >= 0 && amount <= 1) {
+            double i = this.getCurrentSpeed();
+            incrementSpeed(amount);
+            double j = this.getCurrentSpeed();
+            if (i > j) {
+                currentSpeed = i;
+            }
+        } else {
+            throw new IllegalArgumentException(INV_ARG);
+        }
+    }
+
+    public void brake(double amount) {
+        if (amount >= 0 && amount <= 1){
+            double i = this.getCurrentSpeed();
+            decrementSpeed(amount);
+            double j = this.getCurrentSpeed();
+            if (i < j){
+                currentSpeed = i;
+            }
+        } else { throw new IllegalArgumentException(INV_ARG);
+        }
+    }
+    public void incrementSpeed(double amount){}
+    public void decrementSpeed(double amount){}
 
     @Override
     public void move() {

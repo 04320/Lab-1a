@@ -30,8 +30,11 @@ public class test {
         assertTrue(test1.getCurrentSpeed() == 0 && test2.getCurrentSpeed() == 0);
     }
     @Test
-    public void checkIncrementSpeed(){
-
+    public void checkGas(){
+        test1.startEngine();
+        double x = test1.getCurrentSpeed();
+        test1.gas(0.5);
+        assertTrue(test1.getCurrentSpeed() > x);
 
     }
     @Test

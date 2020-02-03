@@ -55,6 +55,8 @@ public abstract class Car implements Movable{
     public void setColor(Color clr){
         color = clr;
     }
+    public void setX (double newX) { x = newX; }
+    public void setY (double newY) { y = newY; }
 
     /**
      * Starts / Stops the engine (affects currentSpeed)
@@ -113,16 +115,16 @@ public abstract class Car implements Movable{
     @Override
     public void move() {
         if (dir == direction.SOUTH){
-            y = y - currentSpeed;
+            setY(y - currentSpeed);
         }
         if (dir == direction.NORTH){
-            y = y + currentSpeed;
+            setY(y + currentSpeed);
         }
         if (dir == direction.WEST){
-            x = x - currentSpeed;
+            setX(x - currentSpeed);
         }
         if (dir == direction.EAST){
-            x = x + currentSpeed;
+            setX(x + currentSpeed);
         }
     }
     @Override

@@ -57,6 +57,7 @@ public abstract class Car implements Movable{
     }
     public void setX (double newX) { x = newX; }
     public void setY (double newY) { y = newY; }
+    public void setDir (direction newDir){dir = newDir; }
 
     /**
      * Starts / Stops the engine (affects currentSpeed)
@@ -130,31 +131,31 @@ public abstract class Car implements Movable{
     @Override
     public void turnLeft() {
         if (dir == direction.SOUTH){
-            dir = direction.EAST;
+            setDir(direction.EAST);
         }
         else if (dir == direction.EAST){
-            dir = direction.NORTH;
+            setDir(direction.NORTH);
         }
         else if (dir == direction.NORTH){
-            dir = direction.WEST;
+            setDir(direction.WEST);
         }
         else if (dir == direction.WEST){
-            dir = direction.SOUTH;
+            setDir(direction.SOUTH);
         }
     }
     @Override
     public void turnRight() {
         if (dir == direction.SOUTH){
-            dir = direction.WEST;
+            setDir(direction.WEST);
         }
         else if (dir == direction.EAST){
-            dir = direction.SOUTH;
+            setDir(direction.SOUTH);
         }
         else if (dir == direction.NORTH){
-            dir = direction.EAST;
+            setDir(direction.EAST);
         }
         else if (dir == direction.WEST){
-            dir = direction.NORTH;
+            setDir(direction.NORTH);
         }
     }
 

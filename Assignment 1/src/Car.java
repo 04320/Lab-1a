@@ -1,48 +1,28 @@
+/**
+ * Abstract class Car is a super class to car models.
+ */
+
 import java.awt.*;
 
 public abstract class Car implements Movable{
-    public  int nrDoors; // Number of doors on the car
+    public int nrDoors; // Number of doors on the car
     public double enginePower; // Engine power of the car
     public double currentSpeed; // The current speed of the car
     public Color color; // Color of the car
     public String modelName; //The car model name
 
     final static String INV_ARG = "Value not allowed"; //
-<<<<<<< HEAD
 
     //Direction and coordinats
     public double x = 0;
     public double y = 0;
     public direction dir = direction.NORTH;
-
-    public enum direction{
-        NORTH, SOUTH, WEST, EAST
-=======
-    /**
-     * Representations of Direction and position
-     */
-    private double x = 0;
-    private double y = 0;
-    private direction dir = direction.NORTH;
     
     public enum direction{
-        NORTH, SOUTH, WEST, EAST
+        NORTH, SOUTH, WEST, EAST;
     }
 
-    /**
-     * Getters
-     */
-    public double getX(){
-        return x;
-    }
-    public double getY(){
-        return y;
-    }
-    public direction getDir(){
-        return dir;
->>>>>>> a65c3d607116eb045af59f5a9a63b9822a9d4286
-    }
-
+    //Getters
     public int getNrDoors(){
         return nrDoors;
     }
@@ -59,17 +39,12 @@ public abstract class Car implements Movable{
         return color;
     }
 
-    /**
-     * Setters
-     * @param clr which color should be set for the car
-     */
+    //Setters
     public void setColor(Color clr){
         color = clr;
     }
 
-    /**
-     * Starts / Stops the engine (affects currentSpeed)
-     */
+    //Car Components
     public void startEngine(){
         currentSpeed = 0.1;
     }
@@ -78,10 +53,6 @@ public abstract class Car implements Movable{
         currentSpeed = 0;
     }
 
-    /**
-     * Increases the speed of the car.
-      * @param amount a value in the interval [0,1]
-     */
     public void gas(double amount) {
         if (amount >= 0 && amount <= 1) {
             double max = this.getEnginePower();
@@ -98,11 +69,6 @@ public abstract class Car implements Movable{
         }
     }
 
-    /**
-     * Decreases the speed of the car
-     * @param amount a value in the interval [0,1]
-     */
-
     public void brake(double amount) {
         if (amount >= 0 && amount <= 1){
             double min = 0;
@@ -118,9 +84,6 @@ public abstract class Car implements Movable{
         }
     }
 
-    /**
-     * Moves the car in the current direction, turns the car left or right
-     */
     @Override
     public void move() {
         if (dir == direction.SOUTH){
@@ -167,11 +130,7 @@ public abstract class Car implements Movable{
         }
     }
 
-    /**
-     * Is called from the gas/brake method.
-     * Does nothing unless a  method with the same name is also defined as Override in the car subclass
-     */
-    public void incrementSpeed(double amount){}
-    public void decrementSpeed(double amount){}
+    public void incrementSpeed(double amount){} // Is overrriden if specified in subclass
+    public void decrementSpeed(double amount){} // Is overrriden if specified in subclass
 
 }

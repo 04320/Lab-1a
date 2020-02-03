@@ -1,4 +1,5 @@
 /**
+ * Is a test class.
  */
 
 import org.junit.Before;
@@ -12,16 +13,14 @@ import static junit.framework.TestCase.assertTrue;
 public class test {
     Volvo240 test1 = new Volvo240();
     Saab95 test2 = new Saab95();
+    Car test3;
 
     @Before
     public void init(){
     }
     @Test
     public void checknrDoors(){
-        out.println(test1.nrDoors);
-        test1.nrDoors = 5;
-        out.println(test1.nrDoors);
-        assertTrue(test1.nrDoors == 5 && test2.getNrDoors() == 2);
+        assertTrue(test1.getNrDoors() == 4 && test2.getNrDoors() == 2);
     }
     @Test
     public void checkColor(){
@@ -98,7 +97,7 @@ public class test {
     }
     @Test
     public void checkMove(){
-        out.println(test1.getDir());
+        out.println(test1.dir);
         test1.move();
         //out.println(test1.y);
         //out.println(test1.getCurrentSpeed());
@@ -106,18 +105,18 @@ public class test {
         test1.move();
         //out.println(test1.y);
         //out.println(test1.getCurrentSpeed());
-        assertTrue(test1.getY() == test1.getCurrentSpeed());
+        assertTrue(test1.y == test1.getCurrentSpeed());
     }
     @Test
     public void checkTurnRight(){
         test1.turnRight();
-        assertTrue(test1.getDir() == Car.direction.EAST);
+        assertTrue(test1.dir == Car.direction.EAST);
     }
     @Test
     public void checkTurnLeft(){
         test1.turnLeft();
         test1.turnLeft();
-        assertTrue(test1.getDir() == Car.direction.SOUTH);
+        assertTrue(test1.dir == Car.direction.SOUTH);
     }
     @Test
     public void checkColorChange(){

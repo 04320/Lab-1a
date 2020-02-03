@@ -7,10 +7,7 @@ import java.awt.*;
 public class Saab95 extends Car{
 
     public boolean turboOn;
-
-    /**
-     * Standard values for a Saab95 being created.
-     */
+    
     public Saab95(){
         nrDoors = 2;
         color = Color.red;
@@ -20,9 +17,6 @@ public class Saab95 extends Car{
         stopEngine();
     }
 
-    /**
-     * Setters
-     */
     public void setTurboOn(){
 	    turboOn = true;
     }
@@ -30,11 +24,7 @@ public class Saab95 extends Car{
     public void setTurboOff(){
 	    turboOn = false;
     }
-
-    /**
-     * Checks the state of a number of things and returns a value used to calculate speed increase/decrease
-     * @return
-     */
+    
     private double speedFactor(){
         double turbo = 1;
         if(turboOn) turbo = 1.3;

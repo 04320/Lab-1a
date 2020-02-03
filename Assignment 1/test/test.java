@@ -1,5 +1,4 @@
 /**
- * Is a test class.
  */
 
 import org.junit.Before;
